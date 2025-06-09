@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h2>Edit Profile</h2>
+
+    <% if (message) { %>
+        <p style="color: green;"><%= message %></p>
+    <% } %>
+
+    <form action="/profile" method="POST">
+        <input type="text" name="name" value="<%= user.name %>" placeholder="Full Name" required><br>
+        <input type="email" name="email" value="<%= user.email %>" placeholder="Email" required><br>
+        <input type="text" name="phone" value="<%= user.phone %>" placeholder="Phone Number" required><br>
+        <input type="password" name="password" placeholder="New Password (leave blank to keep old one)"><br>
+        <button type="submit">Confirm</button>
+    </form>
+
+    <br>
+    <a href="/home"><button>Back to Home</button></a>
+</body>
+</html>
