@@ -1,4 +1,4 @@
-<h2>Admin Dashboard</h2>
+<!--<h2>Admin Dashboard</h2>
 <p><a href="/admin/logout">Logout</a></p>
 
 <form action="/admin/dashboard/search" method="GET">
@@ -10,7 +10,7 @@
 <table border="1" cellpadding="8">
     <thead>
         <tr>
-            <th>ID</th><th>Name</th><th>Email</th><th>Actions</th>
+            <th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -19,6 +19,7 @@
                 <td><%= user.id %></td>
                 <td><%= user.name %></td>
                 <td><%= user.email %></td>
+                <td><%= user.phone %></td>
                 <td>
                     <a href="/admin/edit/<%= user.id %>">Edit</a> |
                     <a href="/admin/delete/<%= user.id %>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
@@ -27,3 +28,51 @@
         <% }) %>
     </tbody>
 </table>
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="admin-dashboard-page">
+    <div class="admin-wrapper">
+
+        <!-- Header: Title + Logout -->
+        <div class="admin-header">
+            <h2>Admin Dashboard</h2>
+            <a href="/admin/logout" class="btn logout-btn">Logout</a>
+        </div>
+
+        <!-- Search Row -->
+        <div class="search-bar">
+            <form action="/admin/dashboard/search" method="GET" class="search-form">
+                <input type="text" name="q" placeholder="Search by name or email" class="search-input" required>
+                <button type="submit" class="btn search-btn">Search</button>
+                <a href="/admin/dashboard" class="btn reset-btn">Reset</a>
+            </form>
+        </div>
+
+        <!-- User Cards -->
+        <div class="user-card-container">
+            <% users.forEach(user => { %>
+                <div class="user-card">
+                    <h3><%= user.name %></h3>
+                    <p><strong>ID:</strong> <%= user.id %></p>
+                    <p><strong>Email:</strong> <%= user.email %></p>
+                    <p><strong>Phone:</strong> <%= user.phone %></p>
+                    <div class="card-buttons">
+                        <a href="/admin/edit/<%= user.id %>" class="btn edit-btn">Edit</a>
+                        <a href="/admin/delete/<%= user.id %>" onclick="return confirm('Are you sure you want to delete this user?')" class="btn delete-btn">Delete</a>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</body>
+</html>

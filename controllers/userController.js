@@ -1,7 +1,8 @@
 const db = require('../config/db');
 
 exports.getSignup = (req, res) => {
-    res.render('signup');
+    //res.render('signup');
+    res.render('signup', { error: null });
 };
 
 const bcrypt = require('bcrypt');

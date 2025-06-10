@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
     <title>User Home</title>
@@ -10,5 +10,28 @@
     <br>
     <a href="/profile"><button>Edit Profile</button></a>
 
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Home</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="home-page">
+    <div class="dashboard-container">
+        <div class="dashboard-card">
+            <h2>Welcome, <%= user.name %>!</h2>
+            <p><strong>Email:</strong> <%= user.email %></p>
+            <div class="button-group">
+                <a href="/profile" class="btn">Edit Profile</a>
+                <a href="/logout" class="btn logout">Logout</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
