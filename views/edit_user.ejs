@@ -1,9 +1,37 @@
-<h2>Edit User</h2>
+<!-- <h2>Edit User</h2>
 <form action="/admin/edit/<%= user.id %>" method="POST">
     <input type="text" name="name" value="<%= user.name %>" required><br>
     <input type="email" name="email" value="<%= user.email %>" required><br>
-    <input type="password" name="password" placeholder="Leave blank to keep current password"><br>
+    <input type="text" name="phone" value="<%= user.phone %>" required><br>
+    <input type="password" name="password" placeholder="New Password"><br>
     <button type="submit">Update</button>
 </form>
 <br>
 <a href="/admin/dashboard">Back to Dashboard</a>
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body class="admin-edit-page">
+    <div class="edit-card">
+        <h2>Edit User</h2>
+
+        <form action="/admin/edit/<%= user.id %>" method="POST">
+            <input type="text" name="name" value="<%= user.name %>" placeholder="Full Name" required>
+            <input type="email" name="email" value="<%= user.email %>" placeholder="Email" required>
+            <input type="text" name="phone" value="<%= user.phone %>" placeholder="Phone Number" required>
+            <input type="password" name="password" placeholder="New Password (leave blank to keep old one)">
+            <button type="submit">Update</button>
+        </form>
+
+        <a href="/admin/dashboard" class="btn back-btn">← Back to Dashboard</a>
+    </div>
+</body>
+</html>
