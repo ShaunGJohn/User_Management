@@ -16,10 +16,14 @@ router.get('/edit/:id', adminController.getEditUser);
 router.post('/edit/:id', adminController.postEditUser);
 
 
+
+
+
 // Logout
 router.get('/logout', adminController.logout);
 
-
+router.get('/add', adminController.getAddUser);
+router.post('/add', adminController.postAddUser);
 
 
 module.exports = router;

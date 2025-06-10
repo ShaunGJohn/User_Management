@@ -1,7 +1,7 @@
 const db = require('../config/db');
 
 exports.getSignup = (req, res) => {
-    //res.render('signup');
+    
     res.render('signup', { error: null });
 };
 
@@ -9,7 +9,7 @@ const bcrypt = require('bcrypt');
 
 
 exports.postSignup = (req, res) => {
-    const { name, email, password, phone } = req.body; // ✅ Include phone
+    const { name, email, password, phone } = req.body; 
 
     // Hash password
     bcrypt.hash(password, 10, (err, hash) => {
@@ -32,7 +32,6 @@ exports.postSignup = (req, res) => {
 
 
 
-//const db = require('../config/db');
 
 exports.getLogin = (req, res) => {
     res.render('login', { error: null });

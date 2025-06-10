@@ -435,7 +435,7 @@ body.admin-dashboard-page {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 }
 
 .admin-header h2 {
@@ -460,13 +460,15 @@ body.admin-dashboard-page {
 
 /* Search Section */
 .search-bar {
+    margin-top: 25px;
     margin-bottom: 20px;
 }
 
 .search-form {
     display: flex;
     align-items: center;
-    gap: 10px;
+    
+    gap: 5px;
 }
 
 .search-input {
@@ -507,8 +509,8 @@ body.admin-dashboard-page {
 .user-card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* ✅ 3 per row */
-    gap: 20px;
-    justify-content: space-between;
+    gap: 30px;
+    justify-content:space-evenly;
     align-items: start;
 }
 
@@ -661,7 +663,7 @@ body.admin-edit-page {
 .back-btn {
     display: inline-block;
     margin-top: 20px;
-    color: white
+    color: white;
     text-decoration: none;
     font-weight: 500;
     padding: 10px 20px;
@@ -672,4 +674,21 @@ body.admin-edit-page {
 
 .back-btn:hover {
     background-color: #d0d0d0;
+}
+
+
+/* Add User Button */
+.add-user-btn {
+    background-color: #28a745; /* green */
+    color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.add-user-btn:hover {
+    background-color: #218838;
 }
