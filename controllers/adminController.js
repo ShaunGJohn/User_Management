@@ -1,5 +1,8 @@
 const db = require('../config/db');
 
+const bcrypt = require('bcrypt');
+
+
 // Admin Login Page
 exports.getAdminLogin = (req, res) => {
     res.render('admin_login', { error: null });
@@ -135,6 +138,42 @@ exports.searchUsers = (req, res) => {
         res.render('admin_dashboard', { users: results });
     });
 };
+
+
+// Show Add User Form
+exports.getAddUser = (req, res) => {
+    if (!req.session.admin) return res.redirect('/admin/login');
+    res.render('add_user', { message: null });
+};
+
+// Handle Add User Form Submission
+exports.postAddUser = (req, res) => {
+    if (!req.session.admin) return res.redirect('/admin/login');
+
+    const { name, email, phone, password } = req.body;
+
+    bcrypt.hash(password, 10, (err, hash) => {
+        if (err) {
+            console.error('Hashing error:', err);
+            return res.render('add_user', { message: 'Error adding user' });
+        }
+
+        const sql = 'INSERT INTO users (name, email, phone, password) VALUES (?, ?, ?, ?)';
+        db.query(sql, [name, email, phone, hash], (err, result) => {
+            if (err) {
+                console.error('Insert error:', err);
+                return res.render('add_user', { message: 'User already exists or DB error' });
+            }
+
+            // Show success message briefly, then redirect
+            res.render('add_user', { message: 'User added successfully!' });
+
+            // OR: Redirect back to dashboard after showing message
+            // res.redirect('/admin/dashboard');
+        });
+    });
+};
+
 
 
 
